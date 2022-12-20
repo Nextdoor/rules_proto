@@ -35,10 +35,11 @@ func (s *protoTsLibrary) Name() string {
 func (s *protoTsLibrary) KindInfo() rule.KindInfo {
 	return rule.KindInfo{
 		MergeableAttrs: map[string]bool{
-			"srcs": true,
-			"tsc":  true,
-			"args": true,
-			"data": true,
+			"srcs":     true,
+			"tsc":      true,
+			"args":     true,
+			"data":     true,
+			"tsconfig": true,
 		},
 		ResolveAttrs: map[string]bool{
 			"deps": true,
@@ -124,17 +125,17 @@ func (s *tsLibrary) Rule(otherGen ...*rule.Rule) *rule.Rule {
 		newRule.SetAttr("deps", deps)
 	}
 
-	tsc := s.RuleConfig.GetAttr("tsc")
-	if len(tsc) > 0 {
-		if len(tsc) > 1 {
-			log.Printf("warning (%s): found multiple entries for 'tsc', choosing last one: %v", s.Kind(), tsc)
-		}
-		newRule.SetAttr("tsc", tsc[len(tsc)-1])
-	}
-
 	args := s.RuleConfig.GetAttr("args")
 	if len(args) > 0 {
 		newRule.SetAttr("args", args)
+	}
+
+	tsconfig := s.RuleConfig.GetAttr("tsconfig")
+	if len(tsconfig) > 0 {
+		if len(tsconfig) > 1 {
+			log.Printf("warning (%s) found multiple entries for 'tsconfig', choosing last one: %v", s.Kind(), tsconfig)
+		}
+		newRule.SetAttr("tsconfig", tsconfig[len(tsconfig)-1])
 	}
 
 	if s.flags.includeProtoLibraryData {
