@@ -131,8 +131,12 @@ proto_compile(
 proto_ts_library(
     name = "thing_ts_proto",
     srcs = ["thing.ts"],
+    out_dir = "ts",
     visibility = ["//visibility:public"],
-    deps = [],
+    deps = [
+        "//:node_modules/long",
+        "//:node_modules/protobufjs",
+    ],
 )
 
 proto_compile(

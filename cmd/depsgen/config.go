@@ -30,31 +30,29 @@ type Config struct {
 // ProtoDependencyInfo represents the starlark ProtoDependencyInfo provider.
 // The fields are a mashup of all possible fields from repository rules.
 type ProtoDependencyInfo struct {
-	BuildFile                string
-	BuildFileContent         string
-	BuildFileProtoMode       string
-	Deps                     []*ProtoDependencyInfo
-	Executable               bool
-	Importpath               string
-	Label                    string
-	Name                     string
-	Path                     string
-	RepositoryRule           string
-	Sha256                   string
-	StripPrefix              string
-	SymlinkNodeModules       bool
-	FrozenLockfile           bool
-	Sum                      string
-	Urls                     []string
-	Version                  string
-	WorkspaceSnippet         string
-	PackageJson              string
-	PackageLockJson          string
-	PatchArgs                []string
-	Patches                  []string
-	PnpmLock                 string
-	YarnLock                 string
-	VerifyNodeModulesIgnored string
+	BuildFile          string
+	BuildFileContent   string
+	BuildFileProtoMode string
+	Deps               []*ProtoDependencyInfo
+	Executable         bool
+	Importpath         string
+	Label              string
+	Name               string
+	Path               string
+	RepositoryRule     string
+	Sha256             string
+	StripPrefix        string
+	SymlinkNodeModules bool
+	FrozenLockfile     bool
+	Sum                string
+	Urls               []string
+	Version            string
+	WorkspaceSnippet   string
+	PackageJson        string
+	PackageLockJson    string
+	PatchArgs          []string
+	Patches            []string
+	YarnLock           string
 }
 
 type LoadInfo struct {

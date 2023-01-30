@@ -40,6 +40,7 @@ func (s *protoTsLibrary) KindInfo() rule.KindInfo {
 			"args":     true,
 			"data":     true,
 			"tsconfig": true,
+			"out_dir":  true,
 		},
 		ResolveAttrs: map[string]bool{
 			"deps": true,
@@ -136,6 +137,14 @@ func (s *tsLibrary) Rule(otherGen ...*rule.Rule) *rule.Rule {
 			log.Printf("warning (%s) found multiple entries for 'tsconfig', choosing last one: %v", s.Kind(), tsconfig)
 		}
 		newRule.SetAttr("tsconfig", tsconfig[len(tsconfig)-1])
+	}
+
+	outdir := s.RuleConfig.GetAttr("out_dir")
+	if len(outdir) > 0 {
+		if len(outdir) > 1 {
+			log.Printf("warning (%s) found multiple entries for 'out_dir', choosing last one: %v", s.Kind(), outdir)
+		}
+		newRule.SetAttr("out_dir", outdir[len(outdir)-1])
 	}
 
 	if s.flags.includeProtoLibraryData {

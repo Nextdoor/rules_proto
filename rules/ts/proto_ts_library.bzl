@@ -1,11 +1,6 @@
 "proto_ts_library.bzl provides the proto_ts_library rule"
 
-load("@build_bazel_rules_nodejs//:providers.bzl", "DeclarationInfo", "JSModuleInfo")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
-load("@aspect_bazel_lib//lib:copy_file.bzl", "copy_file")
-load("@aspect_rules_js//js:libs.bzl", "js_lib_helpers")
-load("@aspect_bazel_lib//lib:copy_to_directory.bzl", "copy_to_directory")
-load("@aspect_bazel_lib//lib:directory_path.bzl", "directory_path")
 
 def proto_ts_library(
         name,
