@@ -438,25 +438,6 @@ proto_dependency(
     urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/5.8.0/rules_nodejs-core-5.8.0.tar.gz"],
 )
 
-proto_dependency(
-    name = "npm_ts_proto",
-    package_json = "@build_stack_rules_proto//plugin/stephenh/ts-proto:package.json",
-    package_lock_json = "@build_stack_rules_proto//plugin/stephenh/ts-proto:package-lock.json",
-    repository_rule = "npm_install",
-    symlink_node_modules = False,
-    deps = ["build_bazel_rules_nodejs"],
-)
-
-proto_dependency(
-    name = "npm_tsc",
-    frozen_lockfile = True,
-    package_json = "@build_stack_rules_proto//rules/ts:package.json",
-    repository_rule = "yarn_install",
-    symlink_node_modules = False,
-    yarn_lock = "@build_stack_rules_proto//rules/ts:yarn.lock",
-    deps = ["build_bazel_rules_nodejs"],
-)
-
 # Commit: 42195b5ca136f78d28819ef486e3a7b02ad45146
 # Date: 2021-10-18 20:50:52 +0000 UTC
 # URL: https://github.com/bazelbuild/rules_closure/commit/42195b5ca136f78d28819ef486e3a7b02ad45146
