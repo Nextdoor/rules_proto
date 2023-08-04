@@ -122,9 +122,13 @@ maven_install(
     name = "maven",
     artifacts = IO_GRPC_GRPC_JAVA_ARTIFACTS + PROTOBUF_MAVEN_ARTIFACTS,
     generate_compat_repositories = True,
+<<<<<<< HEAD
     # TODO(pcj): why does pinning of this repository cause such problems?
     # example: no such package '@com_google_errorprone_error_prone_annotations_2_18_0//file': The repository '@com_google_errorprone_error_prone_annotations_2_18_0' could not be resolved: Repository '@com_google_errorprone_error_prone_annotations_2_18_0' is not defined and referenced by '@maven//:com_google_errorprone_error_prone_annotations_2_18_0_extension'
     # maven_install_json = "//:maven_install.json",
+=======
+    maven_install_json = "//:maven_install.json",
+>>>>>>> 30dc8d27 (Merge changes from upstream (#5))
     override_targets = IO_GRPC_GRPC_JAVA_OVERRIDE_TARGETS,
     repositories = ["https://repo.maven.apache.org/maven2/"],
     strict_visibility = True,
